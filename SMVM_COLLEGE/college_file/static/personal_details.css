@@ -1,0 +1,77 @@
+/* General styling for the page */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 80%;
+    margin: 30px auto;
+    background: linear-gradient(135deg, #cc2b5e, #753a88);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 20px;
+}
+
+/* Title and Header Styling */
+h1 {
+    text-align: center;
+    color: white;
+    font-size: 2rem;
+    margin-bottom: 30px;
+}
+
+.details-section {
+    margin-bottom: 20px;
+    padding: 15px;
+    border-radius: 8px;
+    background-color: #fafafa;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.details-section h2 {
+    color: #753a88;
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 5px;
+}
+
+/* Info section styling */
+.info {
+    margin: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    padding: 8px;
+}
+
+.info label {
+    font-weight: bold;
+    color: #333;
+    width: 200px;
+}
+
+.info span {
+    color: #555;
+    font-style: italic;
+}
+
+/* Adjustments for responsive design */
+@media screen and (max-width: 768px) {
+    .container {
+        width: 95%;
+        padding: 10px;
+    }
+
+    .info {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .info label {
+        width: auto;
+        margin-bottom: 5px;
+    }
+}

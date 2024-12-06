@@ -1,0 +1,42 @@
+/* Complaints Table Styling */
+.complaints-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.complaints-table th, .complaints-table td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+.complaints-table th {
+    background: linear-gradient(135deg, #cc2b5e, #753a88);
+    font-weight: bold;
+    color: white;
+}
+
+.complaints-table tr:nth-child(even) {
+    background-color: #fafafa;
+}
+
+.complaints-table td {
+    color: #333;
+}
+
+.complaints-table .resolved {
+    color: green;
+}
+
+.complaints-table .pending {
+    color: red;
+}
+.container h1  {
+    text-align: center;
+    margin-top: 20px;
+}
+.container p {
+    text-align: center;
+    margin-bottom: 20px;
+}

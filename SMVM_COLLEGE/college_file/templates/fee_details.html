@@ -1,0 +1,110 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Fee Details
+{% endblock title %}
+
+{% block content %}
+{%load static%}
+<head>
+    <link rel="stylesheet" href="{% static 'fee_details.css' %}">
+</head>
+    <div class="container">
+        <h1 class="header_head">Student Fee Details</h1>
+        
+        <!-- Fee Summary -->
+        <div class="fee-summary">
+            <h2>Fee Summary</h2>
+            
+            {% for fee_detail in fee_details %}
+            <div class="info">
+                <label>Total Fee:</label>
+                <span>Rs.{{ fee_detail.total_fee }}</span>
+            </div>
+            <div class="info">
+                <label>Amount Paid:</label>
+                <span>Rs.{{ fee_detail.amount_paid }}</span>
+            </div>
+            <div class="info">
+                <label>Remaining Balance:</label>
+                <span>Rs.{{ fee_detail.remaining_fee }}</span>
+            </div>
+            <div class="info">
+                <label>Due Date:</label>
+                <span>Rs.{{ fee_detail.remaining_fee }}</span>
+            </div>
+        </div>
+
+        <!-- Detailed Fee Breakdown -->
+        <div class="details-section">
+            <h2>Fee Breakdown</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Fee Component</th>
+                        <th>Amount</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Tuition Fee</td>
+                        <td>Rs.2500</td>
+                        <td class="{% if fee_detail.status1 %}paid{% else %}pending{% endif %}">
+                            {% if fee_detail.status1 %}
+                                Paid
+                            {% else %}
+                                Pending
+                            {% endif %}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Library Fee</td>
+                        <td>Rs.300</td>
+                        <td class="{% if fee_detail.status2 %}paid{% else %}pending{% endif %}">
+                            {% if fee_detail.status2 %}
+                                Paid
+                            {% else %}
+                                Pending
+                            {% endif %}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Lab Fee</td>
+                        <td>Rs.700</td>
+                        <td class="{% if fee_detail.status3 %}paid{% else %}pending{% endif %}">
+                            {% if fee_detail.status3 %}
+                                Paid
+                            {% else %}
+                                Pending
+                            {% endif %}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Sports Fee</td>
+                        <td>Rs.200</td>
+                        <td class="{% if fee_detail.status4 %}paid{% else %}pending{% endif %}">
+                            {% if fee_detail.status4 %}
+                                Paid
+                            {% else %}
+                                Pending
+                            {% endif %}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Other Charges</td>
+                        <td>Rs.300</td>
+                        <td class="{% if fee_detail.status5 %}paid{% else %}pending{% endif %}">
+                            {% if fee_detail.status5 %}
+                                Paid
+                            {% else %}
+                                Pending
+                            {% endif %}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        {% endfor %}
+    </div>
+{% endblock content %}

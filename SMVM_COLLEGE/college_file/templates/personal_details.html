@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Personal Details
+{% endblock title %}
+
+{% block content %}
+{%load static%}
+<head>
+    <link rel="stylesheet" href="{% static 'personal_details.css' %}">
+</head>
+    <div class="container">
+        <h1>Student Personal Details</h1>
+        <div class="details-section">
+            <h2>Personal Information</h2>
+            <div class="info">
+                <label>Full Name:</label>
+                <span>{{ student.name }}</span>
+            </div>
+            <div class="info">
+                <label>Date of Birth:</label>
+                <span>{{ student.date_of_birth }}</span>
+            </div>
+            <div class="info">
+                <label>Gender:</label>
+                <span>{{ student.gender }}</span>
+            </div>
+            <div class="info">
+                <label>Address:</label>
+                <span>{{ student.address }}</span>
+            </div>
+        </div>
+
+        <!-- Academic Details -->
+        <div class="details-section">
+            <h2>Academic Details</h2>
+            <div class="info">
+                <label>Student ID:</label>
+                <span>{{ student.student_id }}</span>
+            </div>
+            <div class="info">
+                <label>Course:</label>
+                <span>{{ student.course }}</span>
+            </div>
+            <div class="info">
+                <label>Year:</label>
+                <span>{{ student.year }}</span>
+            </div>
+            <div class="info">
+                <label>Department:</label>
+                <span>{{ student.department }}</span>
+            </div>
+        </div>
+
+        <!-- Contact Information -->
+        <div class="details-section">
+            <h2>Contact Information</h2>
+            <div class="info">
+                <label>Phone Number:</label>
+                <span>{{ student.phone_number }}</span>
+            </div>
+            <div class="info">
+                <label>Email:</label>
+                <span>{{ student.email }}</span>
+            </div>
+            <div class="info">
+                <label>Emergency Contact:</label>
+                <span>{{ student.emergency_contact }}</span>
+            </div>
+        </div>
+    
+    </div>
+{% endblock content %}

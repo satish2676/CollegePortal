@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Backlogs
+{% endblock title %}
+
+{% block content %}
+{%load static%}
+<head>
+    <link rel="stylesheet" href="{% static 'backlogs.css' %}">
+</head>
+<div class="header">
+    <h1>Student Backlogs</h1>
+    {% for backlog in backlogs %}
+    Roll No: {{ backlog.student_id }}</h2>
+    {% endfor %}
+</div>
+
+<div class="backlogs-table">
+    <table>
+        <thead>
+            <tr>
+                <th>Semester</th>
+                <th>Subject Code</th>
+                <th>Subject Name</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for backlog in backlogs %}
+            <tr>
+                <td>{{ backlog.semester_1st }}</td>
+                <td>{{ backlog.subject_code1 }}</td>
+                <td>{{ backlog.subject_name1 }}</td>
+                <td class="{% if backlog.status %}cleared{% else %}pending{% endif %}">
+                    {% if backlog.status %}
+                        Cleared
+                    {% else %}
+                        Pending
+                    {% endif %}
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="4">No backlogs found</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock content %}

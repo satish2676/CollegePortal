@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Complaints
+{% endblock title %}
+
+{% block content %}
+{%load static%}
+<head>
+    <link rel="stylesheet" href="{% static 'complaints.css' %}">
+</head>
+    <div class="container">
+        <h1>Student Complaints</h1>
+        <p>Below are the complaints made by the admin to students:</p>
+
+        <!-- Complaints Table -->
+        <table class="complaints-table">
+            <thead>
+                <tr>
+                    <th>Complaint ID</th>
+                    <th>Student Name</th>
+                    <th>Student ID</th>
+                    <th>Department</th>
+                    <th>Complaint</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for complaint in complaints %}
+                    <tr>
+                        <td>{{ complaint.id }}</td>
+                        <td>{{ complaint.student.name }}</td>
+                        <td>{{ complaint.student.student_id }}</td>
+                        <td>{{ complaint.student.department }}</td>
+                        <td>{{ complaint.complaint }}</td>
+                        <td>
+                            {% if complaint.status == "resolved" %}
+                                Resolved
+                            {% else %}
+                                Pending
+                            {% endif %}
+                        </td>
+                    </tr>
+                {% empty %}
+                    <tr>
+                        <td colspan="6">No complaints available.</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock content %}

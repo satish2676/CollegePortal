@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+
+{% block title %}
+    MARKS
+{% endblock title %}
+
+{% block content %}
+{%load static %}
+<head>
+    <link rel="stylesheet" href="{% static 'marks.css' %}">
+</head>
+<div class="header">
+    <h1>Student Marks</h1>
+    {% for mark in marks %}
+    Roll No: {{ mark.student_id }}</h2>
+</div>
+
+<div class="marks-table">
+    <table>
+        <thead>
+            <tr>
+                <th>Semester</th>
+                <th>Marks Obtained</th>
+                <th>Maximum Marks</th>
+                <th>CGPA</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1st Semester</td>
+                <td>{{ mark.marks_obtained_1st }}</td>
+                <td>600</td>
+                <td>{{ mark.CGPA_1st }}</td>
+            </tr>
+            <tr>
+                <td>2nd Semester</td>
+                <td>{{ mark.marks_obtained_2nd }}</td>
+                <td>600</td>
+                <td>{{ mark.CGPA_2nd }}</td>
+            </tr>
+            <tr>
+                <td>3rd Semester</td>
+                <td>{{ mark.marks_obtained_3rd }}</td>
+                <td>600</td>
+                <td>{{ mark.CGPA_3rd }}</td>
+            </tr>
+            <tr>
+                <td>4th Semester</td>
+                <td>{{ mark.marks_obtained_4th }}</td>
+                <td>600</td>
+                <td>{{ mark.CGPA_4th }}</td>
+            </tr>
+            <tr>
+                <td>5th Semester</td>
+                <td>{{ mark.marks_obtained_5th }}</td>
+                <td>600</td>
+                <td>{{ mark.CGPA_5th }}</td>
+            </tr>
+            <tr>
+                <td>6th Semester</td>
+                <td>{{ mark.marks_obtained_6th }}</td>
+                <td>600</td>
+                <td>{{ mark.CGPA_6th }}</td>
+            </tr>
+            <tr>
+                <td><strong>Total</strong></td>
+                <td><strong>{{ mark.total_marks_obtained }}</strong></td>
+                <td><strong>3600</strong></td>
+                <td><strong>{{ mark.CGPA_total }}</strong></td>
+            </tr>
+        </tbody>
+    </table>
+    {% endfor %}
+</div>
+{% endblock content %}

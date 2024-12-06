@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin & Student Login</title>
+    <style>
+        /* General Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #cc2b5e, #753a88);
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            padding: 20px;
+        }
+
+        .wrapper {
+            width: 90%;
+            max-width: 1200px;
+            text-align: center;
+        }
+
+        .title {
+            font-size: 24px;
+            font-weight: bold;
+            color: #ffffff;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            max-width: 1200px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.3);
+            background-color: #ffffff;
+        }
+
+        /* Admin & Student Boxes */
+        .login-box {
+            flex: 1;
+            padding: 30px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .admin-box {
+            background: linear-gradient(135deg,#12C2E9, #F64F59);
+            color: #fff;
+        }
+
+        .student-box {
+            background: linear-gradient(135deg,#12C2E9, #F64F59);
+            color: #fff;
+        }
+
+        .login-box h2 {
+            margin-bottom: 20px;
+            font-size: 24px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .login-box form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 10px;
+        }
+
+        /* Input Fields */
+        .login-box input {
+            width: 80%;
+            max-width: 300px;
+            margin: 10px 0;
+            padding: 10px 15px;
+            border-radius: 25px;
+            border: none;
+            font-size: 16px;
+            background-color: rgba(255, 255, 255, 0.8);
+            color: #333;
+        }
+
+        .login-box input:focus {
+            outline: none;
+            border: 2px solid rgba(255, 255, 255, 0.5);
+        }
+
+        /* Buttons */
+        .login-box button {
+            width: 80%;
+            max-width: 300px;
+            padding: 10px 15px;
+            margin-top: 15px;
+            border: none;
+            border-radius: 25px;
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .login-box button:hover {
+            background-color: rgba(0, 0, 0, 1);
+            transform: scale(1.05);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                border-radius: 10px;
+            }
+
+            .login-box {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <!-- Title Section -->
+        <div class="title">
+            Sree Mullapudi Venkataraya Memorial Polytechnic at Tanuku
+        </div>
+
+        <!-- Login Containers -->
+        <div class="container">
+            <!-- Admin Login -->
+            <div class="login-box admin-box">
+                <h2>Admin Login</h2>
+                <form method="POST" action="{% url 'admin_login' %}">
+                    {% csrf_token %}
+                    <input type="text" name="username" placeholder="Username" required>
+                    <input type="password" name="password" placeholder="Password" required>
+                    <button type="submit">Login as Admin</button>
+                    <div>
+                        {% for message in messages %}
+                        <h3>{{message}}</h3>
+                        {% endfor %}
+                    </div>
+                </form>
+            </div>
+
+            <!-- Student Login -->
+            <div class="login-box student-box">
+                <h2>Student Login</h2>
+                <form method="POST" action="{% url 'student_login' %}">
+                    {% csrf_token %}
+                    <input type="text" name="student_id" placeholder="Roll No" required>
+                    <input type="password" name="password" placeholder="Password" required>
+                    <button type="submit">Login as Student</button>
+                    <div>
+                        {% for message in messages %}
+                        <h3>{{message}}</h3>
+                        {% endfor %}
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

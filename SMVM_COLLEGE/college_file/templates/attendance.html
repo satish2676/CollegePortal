@@ -1,0 +1,111 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Attendance Record
+{% endblock title %}
+
+{% block content %}
+{%load static %}
+<head>
+    <link rel="stylesheet" href="{% static 'attendance.css' %}">
+</head>
+<div class="header">
+    <h1>Attendance Record</h1>
+    {% for attendance in attendances %}
+    Roll No: {{ attendance.student_id }}</h2>
+    {% endfor %}
+</div>
+
+<div class="attendance-table">
+    {% for attendance in attendances %}
+    <table>
+        <thead>
+            <tr>
+                <th>Month</th>
+                <th>No of working days</th>
+                <th>No of days present</th>
+                <th>Percentage</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>January</td>
+                <td>{{ attendance.no_of_workingdays1 }}</td>
+                <td>{{ attendance.no_of_days_present1 }}</td>
+                <td>{{ attendance.percentage1 }}</td>
+            </tr>
+            <tr>
+                <td>February</td>
+                <td>{{ attendance.no_of_workingdays2 }}</td>
+                <td>{{ attendance.no_of_days_present2 }}</td>
+                <td>{{ attendance.percentage2 }}</td>
+            </tr>
+            <tr>
+                <td>March</td>
+                <td>{{ attendance.no_of_workingdays3 }}</td>
+                <td>{{ attendance.no_of_days_present3 }}</td>
+                <td>{{ attendance.percentage3 }}</td>
+            </tr>
+            <tr>
+                <td>April</td>
+                <td>{{ attendance.no_of_workingdays4 }}</td>
+                <td>{{ attendance.no_of_days_present4 }}</td>
+                <td>{{ attendance.percentage4 }}</td>
+            <tr>
+                <td>May</td>
+                <td>{{ attendance.no_of_workingdays5 }}</td>
+                <td>{{ attendance.no_of_days_present5 }}</td>
+                <td>{{ attendance.percentage5 }}</td>
+            <tr>
+                <td>June</td>
+                <td>{{ attendance.no_of_workingdays6 }}</td>
+                <td>{{ attendance.no_of_days_present6 }}</td>
+                <td>{{ attendance.percentage6 }}</td>
+            </tr>
+            <tr>
+                <td>July</td>
+                <td>{{ attendance.no_of_workingdays7 }}</td>
+                <td>{{ attendance.no_of_days_present7 }}</td>
+                <td>{{ attendance.percentage7 }}</td>
+            </tr>
+            <tr>
+                <td>August</td>
+                <td>{{ attendance.no_of_workingdays8 }}</td>
+                <td>{{ attendance.no_of_days_present8 }}</td>
+                <td>{{ attendance.percentage8 }}</td>
+            </tr>
+            <tr>
+                <td>September</td>
+                <td>{{ attendance.no_of_workingdays9 }}</td>
+                <td>{{ attendance.no_of_days_present9 }}</td>
+                <td>{{ attendance.percentage9 }}</td>
+            </tr>
+            <tr>
+                <td>October</td>
+                <td>{{ attendance.no_of_workingdays10 }}</td>
+                <td>{{ attendance.no_of_days_present10 }}</td>
+                <td>{{ attendance.percentage10 }}</td>
+            </tr>
+            <tr>
+                <td>November</td>
+                <td>{{ attendance.no_of_workingdays11 }}</td>
+                <td>{{ attendance.no_of_days_present11 }}</td>
+                <td>{{ attendance.percentage11 }}</td>
+            </tr>
+            <tr>
+                <td>December</td>
+                <td>{{ attendance.no_of_workingdays12 }}</td>
+                <td>{{ attendance.no_of_days_present12 }}</td>
+                <td>{{ attendance.percentage12 }}</td>
+               
+            <tr>
+                <td><b>TOTAL</b></td>
+                <td><b>{{ attendance.total_workingdays }}</b></td>
+                <td><b>{{ attendance.total_days_present }}</b></td>
+                <td><b>{{ attendance.total_percentage }}</b></td>
+            </tr>
+        </tbody>
+    </table>
+    {% endfor %}
+</div>
+{% endblock content %}

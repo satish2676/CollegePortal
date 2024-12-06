@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}Home - Student Portal{% endblock title %}
+
+{%load static%}
+{% block content %}
+<div class="main-content">
+    <div class="portal-header">
+        <img src="{% static 'images/index_pics.png' %}" alt="Student Icon" class="student-icon" width="600" height="300">
+        <h1>Welcome to the Student Portal</h1>
+      
+        <p>Explore your academic details and more!</p>
+    </div>
+</div>
+{% endblock content %}

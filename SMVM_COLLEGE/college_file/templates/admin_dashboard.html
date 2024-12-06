@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+
+        h1 {
+            text-align: center;
+            padding: 20px;
+            background: linear-gradient(135deg, #cc2b5e, #753a88);
+            color: white;
+            margin: 0;
+        }
+
+        h2 {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        a {
+            text-decoration: none;
+            background: linear-gradient(135deg, #cc2b5e, #753a88);
+            font-weight: bold;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        table {
+            width: 90%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        table th,
+        table td {
+            padding: 10px;
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+
+        table th {
+            background: linear-gradient(135deg, #cc2b5e, #753a88);
+            color: white;
+        }
+
+        table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        table tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        button,
+        a {
+            display: inline-block;
+            padding: 8px 12px;
+            margin: 5px 0;
+            border-radius: 5px;
+            font-size: 14px;
+            background: linear-gradient(135deg, #cc2b5e, #753a88);
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover,
+        a:hover {
+            background-color: #45a049;
+        }
+
+        .logout-link {
+            display: block;
+            text-align: right;
+            margin: 10px 20px;
+            font-size: 14px;
+            color: #333;
+        }
+
+        .logout-link a {
+            color: white;
+            background: linear-gradient(135deg, #cc2b5e, #753a88);
+        }
+
+        .logout-link a:hover {
+            color: #333;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to the Admin Dashboard</h1>
+    <div class="logout-link">
+        <a href="{% url 'admin_logout' %}">Logout</a>
+    </div>
+    <h2>Student List</h2>
+    <table border="1">
+        <tr>
+            <th>Student ID</th>
+            <th>Name</th>
+            <th>Course</th>
+            <th>Year</th>
+            <th>Actions</th>
+        </tr>
+        {% for student in students %}
+        <tr>
+            <td>{{ student.student_id }}</td>
+            <td>{{ student.name }}</td>
+            <td>{{ student.course }}</td>
+            <td>{{ student.year }}</td>
+            
+            <td>
+                <a href="{% url 'edit_student' student.student_id %}">Edit</a>
+                <a href="{% url 'delete_student' student.student_id %}">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

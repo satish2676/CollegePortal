@@ -1,0 +1,74 @@
+/* General Styling */
+
+
+.header h1 {
+    
+    font-size: 2.5rem;
+}
+
+/* Backlogs Table Section */
+.backlogs-table {
+    width: 90%;
+    margin: 20px auto;
+    overflow-x: auto;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    background-color: #ffffff;
+}
+
+.backlogs-table table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0;
+    font-size: 1rem;
+}
+
+.backlogs-table th, .backlogs-table td {
+    padding: 12px 15px;
+    text-align: center;
+}
+
+.backlogs-table th {
+    background: linear-gradient(135deg, #cc2b5e, #753a88);
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.backlogs-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.backlogs-table tr:hover {
+    background-color: #ddd;
+}
+
+/* Status Column Styling */
+.backlogs-table .cleared {
+    background-color: #27ae60;
+    color: white;
+    font-weight: bold;
+    border-radius: 4px;
+}
+
+.backlogs-table .pending {
+    background-color: red;
+    color: white;
+    font-weight: bold;
+    border-radius: 4px;
+}
+
+/* Empty State */
+.backlogs-table tbody tr td[colspan="4"] {
+    text-align: center;
+    font-style: italic;
+    color: #888;
+    padding: 20px 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .backlogs-table table {
+        font-size: 0.9rem;
+    }
+}

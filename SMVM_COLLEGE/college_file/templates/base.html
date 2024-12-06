@@ -1,0 +1,195 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Student Portal{% endblock title %}</title>
+
+    <!-- Embedded CSS -->
+    <style>
+        /* General body styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+
+        /* Header Section */
+        .header {
+            width: 100%;
+            padding: 20px ;
+            background: linear-gradient(135deg, #cc2b5e, #753a88);
+            color: #ffffff;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .header table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .collagelogo img {
+            display: block;
+            margin: 0 auto;
+        }
+
+        .header h2 {
+            font-size: 1.2rem;
+            line-height: 1.8rem;
+            text-align: center;
+            margin: 0;
+            color: white;
+        }
+
+        .student_photo img {
+           
+            display: block;
+            margin: 0 auto;
+        }
+
+        /* Navigation Bar */
+        .navbar {
+            background: linear-gradient(135deg, #cc2b5e, #753a88);
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px 0;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            text-align: center;
+            transition: background-color 0.3s;
+        }
+
+        .navbar a:hover {
+            background-color: #008080;
+            border-radius: 5px;
+        }
+
+        /* Main Content Section */
+        main {
+            padding: 20px;
+            background-color: #ffffff;
+            margin: 20px auto;
+            max-width: 1200px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        /* Portal Header Styling */
+        .portal-header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .portal-header img {
+            width: 150px;
+            height: auto;
+            margin-bottom: 10px;
+        }
+
+        .portal-header h1 {
+            font-size: 24px;
+            background: linear-gradient(135deg, #cc2b5e, #753a88);
+            margin: 0;
+        }
+
+        /* Footer Section */
+        .footer {
+            background: linear-gradient(135deg, #cc2b5e, #753a88);
+            color: #ffffff;
+            text-align: center;
+            padding: 10px 0;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        /* Utility Classes */
+        .text-center {
+            text-align: center;
+        }
+
+        .margin-top {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header Section -->
+    <header>
+        <form class="header">
+            <table>
+                <tr>
+                    <th class="collagelogo">
+                        <img src="{% static 'images/collage_logo.png' %}" width="160" height="180">
+                    </th>
+                    <th>
+                        <h2>SREE MULLAPUDI VENKATARAYA MEMORIAL POLYTECHNIC<br>
+                            Tanuku, West Godavari Dist, Andhra Pradesh-534211<br>
+                            Approved by AICTE, New Delhi & Affiliated to SBTET, Andhra Pradesh<br>
+                            Established in 1958 by Sree Mullapudi Venkataraya Memorial Educational
+                        </h2>
+                    </th>
+                    <th class="student_photo">
+                        {% block img %}
+                            {% if student.img %}
+                                <img src="{{ student.img.url }}" alt="Student Photo" width="160" height="180">
+                            {% else %}
+                                <img src="{{ student.img.url }}" alt="Student Photo" width="160" height="180">
+                            {% endif %}
+                        {% endblock %}
+                    </th>
+                </tr>
+            </table>
+        </form>
+    </header>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <a href="{% url 'home' %}">HOME</a>
+        <a href="{% url 'marks' %}">MARKS</a>
+        <a href="{% url 'backlogs' %}">BACKLOGS</a>
+        <a href="{% url 'attendance' %}">ATTENDANCE</a>
+        <a href="{% url 'personal_details' %}">PERSONAL DETAILS</a>
+        <a href="https://en.wikipedia.org/wiki/SMVM_Polytechnic,_Tanuku">ABOUT COLLEGE</a>
+        <a href="{% url 'fee_details' %}">FEE DETAILS</a>
+        <a href="{% url 'complaints' %}">COMPLAINTS</a>
+        <a href="{% url 'logout' %}">LOGOUT</a>
+    </nav>
+
+    <!-- Main Content -->
+    {% load static %}
+    <main>
+        {%load static%}
+        {% block content %}
+        <div class="main-content">
+            <div class="portal-header">
+                <img src="{% static 'images/index_pics.png' %}" alt="Student Icon" class="student-icon" width="600" height="300">
+                <h1>Welcome to the Student Portal</h1>
+              
+                <p>Explore your academic details and more!</p>
+            </div>
+        </div>
+        <!-- Child pages will inject their content here -->
+        {% endblock content %}
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <p>Copyright © 2024 - 2025</p>
+    </footer>
+</body>
+
+</html>
